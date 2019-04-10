@@ -1,0 +1,9 @@
+{
+    "name": "root/devlocal",
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "" : ""
+        }
+    }
+}
