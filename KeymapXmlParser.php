@@ -44,7 +44,7 @@ class KeymapXmlParser
             $stmt = $this->db->prepare('INSERT INTO shortcuts VALUES (:id, :shortcut, :name)');
             $stmt->execute($item);
             if ($i++ > 100) {
-                return;
+                //return;
             }
         }
     }
@@ -52,7 +52,6 @@ class KeymapXmlParser
     private function shortcutSort(string $shortcut)
     {
         $shortcut = strtolower($shortcut);
-        $from = $shortcut;
         $keyorder = [
             'control' => 1,
             'alt' => 2,
@@ -70,10 +69,6 @@ class KeymapXmlParser
             }
             return $key1Val <=> $key2Val;
         });
-        $to = implode(' ', $keys);
-        if ($from !== $to) {
-            echo sprintf('From %s'.PHP_EOL.'  to %s' . PHP_EOL, $from, $to);
-        }
-        return $to;
+        return implode(' ', $keys);
     }
 }
